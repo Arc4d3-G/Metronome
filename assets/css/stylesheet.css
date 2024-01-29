@@ -1,0 +1,49 @@
+h1, h2, h6 {
+    margin: 10px;
+}
+
+header h1 {
+    font-size: 2rem;
+}
+
+.counter h1 {
+    font-size: 5rem;
+}
+
+.counter h2 {
+    font-size: 1rem;
+}
+
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+.main {
+    flex: 1 0 auto;
+    margin-top: 100px;
+}
+
+.header {
+    height: 55px;
+}
+
+.flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.slide {
+    width: 250px;
+}
+
+#counterValue {
+    font-size: 7rem;
+    height: 100px;
+    width: 300px;
+    border: none;
+}

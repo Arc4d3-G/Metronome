@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Metronome</title>
+        <!--Import Google Icon Font-->
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <!--Import materialize.css-->
+        <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
+        <link rel="stylesheet" href="./assets/css/stylesheet.css" />
+        <script src="./assets/js/main.js" defer type="module"></script>
+    </head>
+    <body>
+        <header data-header class="header teal teal-text text-lighten-5">
+            <h1>Metronome</h1>
+        </header>
+        <div data-main class="main teal-text">
+            <div data-counter class="counter container center-align">
+                <input value="120" id="counterValue" type="number" class="teal-text center-align" />
+                <h2>BPM</h2>
+            </div>
+            <div data-controls class="controls container center-align">
+                <div class="flex">
+                    <button class="btn-floating teal">-</button>
+                    <div class="slide">
+                        <input type="range" min="1" max="100" value="50" class="range-field teal" id="myRange" />
+                    </div>
+                    <button class="btn-floating teal">+</button>
+                </div>
+                <div>
+                    <button data-start class="btn teal">Start</button>
+                </div>
+            </div>
+        </div>
+        <footer data-footer class="page-footer teal center-align">
+            <h6>A Javascript metronome.</h6>
+        </footer>
+    </body>
+</html>
