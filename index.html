@@ -5,9 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Metronome</title>
         <!--Import Google Icon Font-->
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
         <!--Import materialize.css-->
-        <link type="text/css" rel="stylesheet" href="/node_modules/materialize-css/dist/css/materialize.min.css" media="screen,projection" />
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="/node_modules/materialize-css/dist/css/materialize.min.css"
+            media="screen,projection"
+        />
         <link rel="stylesheet" href="./assets/css/stylesheet.css" />
         <script src="./assets/js/main.js" defer type="module"></script>
     </head>
@@ -16,17 +24,31 @@
             <h1>Metronome</h1>
         </header>
         <div data-main class="main teal-text">
-            <div data-counter class="counter container center-align">
-                <input value="120" id="counterValue" type="number" class="teal-text center-align" />
-                <h2>BPM</h2>
-            </div>
+            <form data-counter class="counter container center-align">
+                <input
+                    data-counter-input
+                    value="120"
+                    id="counterValue"
+                    type="number"
+                    class="teal-text center-align"
+                />
+                <h2 data-bpm-italian>BPM - Allegro</h2>
+            </form>
             <div data-controls class="controls container center-align">
                 <div class="flex">
-                    <button class="btn-floating teal">-</button>
+                    <button data-subtract class="btn-floating teal">-</button>
                     <div class="slide">
-                        <input type="range" min="1" max="100" value="50" class="range-field teal" id="myRange" />
+                        <input
+                            data-slider
+                            type="range"
+                            min="20"
+                            max="240"
+                            value="120"
+                            class="range-field teal"
+                            id="myRange"
+                        />
                     </div>
-                    <button class="btn-floating teal">+</button>
+                    <button data-add class="btn-floating teal">+</button>
                 </div>
                 <div>
                     <button data-start class="btn teal">Start</button>
