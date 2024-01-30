@@ -1,10 +1,14 @@
+import { themeSwitch } from "./darkmode.js";
+
 const bpmForm = document.querySelector("[data-counter]");
 const bpmInput = document.querySelector("[data-counter-input]");
 const slider = document.querySelector("[data-slider]");
 const addButton = document.querySelector("[data-add]");
 const subtractButton = document.querySelector("[data-subtract]");
 const startButton = document.querySelector("[data-start]");
+const resetButton = document.querySelector("[data-reset]")
 const bpmItalianName = document.querySelector("[data-bpm-italian]")
+const themeButton = document.querySelector("[data-theme]")
 
 
 let bpm = 120; // Beats Per Minute. Default 120
@@ -73,6 +77,9 @@ const subtractHandler = () => {
 }
 subtractButton.addEventListener("click", subtractHandler)
 
+/**
+ * Function sets the counter to display the Italian name for the current bpm.
+ */
 const setBpmItalian = () => {
     bpmItalianName.innerText = `BPM - ${
         (bpm >= 20 && bpm < 40) ? "Grave"
@@ -89,8 +96,22 @@ const setBpmItalian = () => {
           
 }
 
+/**
+ * Reset button sets all values back to their init state.
+ */
+const resetHandler = () => {
+    bpm = 120
+    bpmInput.value = bpm
+    slider.value = bpm
+    setBpmItalian()
+}
+resetButton.addEventListener("click", resetHandler)
 
 
+/**
+ * Triggers {@link themeSwitch}, which toggles the theme between light and dark.
+ */
+themeButton.addEventListener("click", themeSwitch)
 
 startButton.addEventListener("click", () => console.log(bpm));
 
