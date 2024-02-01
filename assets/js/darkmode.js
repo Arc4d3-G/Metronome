@@ -1,6 +1,5 @@
 const colorClass = document.querySelectorAll(".teal");
-const counterText = document.querySelector("[data-counter-input]");
-const tempoText = document.querySelector("[data-tempo-italian]");
+const colorText = document.querySelectorAll(".teal-text");
 const body = document.querySelector("[data-body]");
 const themeText = document.querySelector("[data-theme]");
 
@@ -16,25 +15,30 @@ const darkColorText = "light-blue-text";
  * theme related css classes.
  * @returns {string} currentTheme
  */
-export const themeSwitch = () => {
-	if (currentTheme === "light") {
-		for (let element of colorClass) {
-			element.classList.replace(lightColor, darkColor);
-		}
-		counterText.classList.replace(lightColorText, darkColorText);
-		tempoText.classList.replace(lightColorText, darkColorText);
-		body.classList.add("grey", "darken-3");
-		themeText.innerHTML = `<i class="tiny material-icons left">brightness_medium</i> LIGHT MODE`;
-		return (currentTheme = "dark");
-	}
-	if (currentTheme === "dark") {
-		for (let element of colorClass) {
-			element.classList.replace(darkColor, lightColor);
-		}
-		counterText.classList.replace(darkColorText, lightColorText);
-		tempoText.classList.replace(darkColorText, lightColorText);
-		body.classList.remove("grey", "darken-3");
-		themeText.innerHTML = `<i class="tiny material-icons left">brightness_medium</i> DARK MODE`;
-		return (currentTheme = "light");
-	}
+const themeSwitch = () => {
+  if (currentTheme === "light") {
+    colorClass.forEach((element) =>
+      element.classList.replace(lightColor, darkColor),
+    );
+    colorText.forEach((element) =>
+      element.classList.replace(lightColorText, darkColorText),
+    );
+
+    body.classList.add("grey", "darken-3");
+    themeText.innerHTML = `<i class="tiny material-icons left">brightness_medium</i> LIGHT MODE`;
+    currentTheme = "dark";
+  } else if (currentTheme === "dark") {
+    colorClass.forEach((element) =>
+      element.classList.replace(darkColor, lightColor),
+    );
+    colorText.forEach((element) =>
+      element.classList.replace(darkColorText, lightColorText),
+    );
+
+    body.classList.remove("grey", "darken-3");
+    themeText.innerHTML = `<i class="tiny material-icons left">brightness_medium</i> DARK MODE`;
+    currentTheme = "light";
+  }
+  return currentTheme;
 };
+export default themeSwitch;

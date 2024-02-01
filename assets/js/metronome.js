@@ -1,3 +1,4 @@
+/*eslint-disable */
 import { tempo } from "./main.js";
 
 export const ac = new AudioContext();
@@ -10,29 +11,29 @@ const source = ac.createBufferSource();
  * the current {@link tempo}.
  */
 export const setup = () => {
-	const buf = ac.createBuffer(1, ac.sampleRate * 2, ac.sampleRate);
-	const channel = buf.getChannelData(0);
+  const buf = ac.createBuffer(1, ac.sampleRate * 2, ac.sampleRate);
+  const channel = buf.getChannelData(0);
 
-	let phase = 0;
-	let amp = 1;
-	let duration_frames = ac.sampleRate / 50;
-	let frequency = 330;
+  let phase = 0;
+  let amp = 1;
+  const durationFrames = ac.sampleRate / 50;
+  const frequency = 330;
 
-	for (let i = 0; i < duration_frames; i++) {
-		channel[i] = Math.sin(phase) * amp;
-		phase += (2 * Math.PI * frequency) / ac.sampleRate;
-		if (phase > 2 * Math.PI) {
-			phase -= 2 * Math.PI;
-		}
-		amp -= 1 / duration_frames;
-	}
+  for (let i = 0; i < durationFrames; i += 1) {
+    channel[i] = Math.sin(phase) * amp;
+    phase += (2 * Math.PI * frequency) / ac.sampleRate;
+    if (phase > 2 * Math.PI) {
+      phase -= 2 * Math.PI;
+    }
+    amp -= 1 / durationFrames;
+  }
 
-	source.buffer = buf;
-	source.loop = true;
-	source.loopEnd = 1 / (tempo / 60);
-	source.connect(ac.destination);
-	source.start(0);
-	ac.suspend();
+  source.buffer = buf;
+  source.loop = true;
+  source.loopEnd = 1 / (tempo / 60);
+  source.connect(ac.destination);
+  source.start(0);
+  ac.suspend();
 };
 
 /**
@@ -41,5 +42,5 @@ export const setup = () => {
  * any overlapping or sudden change in tempo.
  */
 export const updateTempo = () => {
-	source.loopEnd = 1 / (tempo / 60);
+  source.loopEnd = 1 / (tempo / 60);
 };
