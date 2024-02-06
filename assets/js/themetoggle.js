@@ -15,7 +15,7 @@ const darkColorText = "light-blue-text";
  * theme related css classes.
  * @returns {string} currentTheme
  */
-const themeSwitch = () => {
+const themeToggle = () => {
   if (currentTheme === "light") {
     colorClass.forEach((element) =>
       element.classList.replace(lightColor, darkColor),
@@ -41,4 +41,4 @@ const themeSwitch = () => {
   }
   return currentTheme;
 };
-export default themeSwitch;
+export default themeToggle;

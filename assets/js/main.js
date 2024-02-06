@@ -1,5 +1,4 @@
-// /*eslint-disable */
-import themeSwitch from "./darkmode.js";
+import themeToggle from "./themetoggle.js";
 import { setup, updateTempo, ac } from "./metronome.js";
 
 const tempoForm = document.querySelector("[data-counter]");
@@ -19,35 +18,35 @@ setup(); // Needs to run on init
 /**
  * Triggers {@link themeSwitch}, which toggles the theme between light and dark.
  */
-themeButton.addEventListener("click", themeSwitch);
+themeButton.addEventListener("click", themeToggle);
 
 /**
  * Sets the counter to display the Italian name for the current tempo value.
  */
 const setTempoItalian = () => {
-  tempoItalianName.innerText = `${
-    tempo >= 20 && tempo < 40
-      ? "Grave"
-      : tempo >= 40 && tempo < 60
-        ? "Largo"
-        : tempo >= 60 && tempo < 66
-          ? "Larghetto"
-          : tempo >= 66 && tempo < 76
-            ? "Adagio"
-            : tempo >= 76 && tempo < 108
-              ? "Andante"
-              : tempo >= 108 && tempo < 120
-                ? "Moderato"
-                : tempo >= 120 && tempo < 156
-                  ? "Allegro"
-                  : tempo >= 156 && tempo < 176
-                    ? "Vivace"
-                    : tempo >= 176 && tempo < 200
-                      ? "Presto"
-                      : tempo >= 200
-                        ? "Prestissimo"
-                        : ""
-  }`;
+  let name = "";
+  if (tempo >= 20 && tempo < 40) {
+    name = "Grave";
+  } else if (tempo >= 40 && tempo < 60) {
+    name = "Largo";
+  } else if (tempo >= 60 && tempo < 66) {
+    name = "Larghetto";
+  } else if (tempo >= 66 && tempo < 76) {
+    name = "Adagio";
+  } else if (tempo >= 76 && tempo < 108) {
+    name = "Andante";
+  } else if (tempo >= 108 && tempo < 120) {
+    name = "Moderato";
+  } else if (tempo >= 120 && tempo < 156) {
+    name = "Allegro";
+  } else if (tempo >= 156 && tempo < 176) {
+    name = "Vivace";
+  } else if (tempo >= 176 && tempo < 200) {
+    name = "Presto";
+  } else if (tempo >= 200) {
+    name = "Prestissimo";
+  }
+  tempoItalianName.innerText = name;
 };
 
 /**

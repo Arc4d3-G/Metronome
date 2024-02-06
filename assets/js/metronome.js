@@ -1,4 +1,3 @@
-/*eslint-disable */
 import { tempo } from "./main.js";
 
 export const ac = new AudioContext();
