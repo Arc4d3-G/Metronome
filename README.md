@@ -2,7 +2,7 @@
 
 ## About
 
-This project consists of a simple yet elegant metronome built using JavaScript, the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_concepts_and_usage), and the [Materialize CSS Framework](https://materializecss.com/).
+This project consists of a simple yet elegant metronome built using vanilla JavaScript, the [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API#web_audio_concepts_and_usage), and the [Materialize CSS Framework](https://materializecss.com/).
 
 ![Alt text](assets/media/Metronome_Tut_1.gif)
 
