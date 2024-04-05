@@ -4,6 +4,19 @@ input[type='range']::-webkit-slider-thumb {
   background-color: rgb(168, 167, 167);
 }
 
+a:link {
+  color: rgb(44, 49, 49);
+  background-color: transparent;
+  text-decoration: none;
+}
+a:visited {
+  color: rgb(44, 49, 49);
+}
+
+a:hover {
+  color: rgb(148, 151, 153);
+}
+
 /* --- SIZING & ALIGNMENT --- */
 h1,
 h2,
